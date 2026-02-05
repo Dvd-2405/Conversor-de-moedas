@@ -1,6 +1,13 @@
-# 💱 Calculadora de Câmbio
+# 💱 Conversor de Moedas
 
-Projeto desenvolvido em JavaScript que permite converter valores entre diferentes moedas de forma simples, rápida e intuitiva.
+Projeto desenvolvido em **JavaScript** que permite converter valores entre diferentes moedas de forma simples, rápida e intuitiva.
+
+Atualmente o conversor trabalha com:
+
+- Real (BRL)  
+- Dólar (USD)  
+- Euro (EUR)  
+- Libra (GBP)  
 
 O objetivo principal deste projeto foi praticar conceitos fundamentais de JavaScript, como manipulação do DOM, eventos e lógica de programação.
 
@@ -8,10 +15,10 @@ O objetivo principal deste projeto foi praticar conceitos fundamentais de JavaSc
 
 ## 🚀 Funcionalidades
 
-- Conversão entre moedas  
+- Conversão entre múltiplas moedas  
 - Entrada de valor personalizada  
 - Atualização dinâmica do resultado  
-- Interface simples e responsiva  
+- Interface simples e intuitiva  
 
 ---
 
@@ -25,21 +32,17 @@ O objetivo principal deste projeto foi praticar conceitos fundamentais de JavaSc
 
 ## 📷 Preview
 
-(Adicione aqui um print do projeto)
-
-Exemplo:
-
-![Preview do Projeto](./preview.png)
+![Preview do Projeto](./assets.png)
 
 ---
 
 ## 📚 O que eu aprendi
 
 - Capturar valores de inputs  
-- Trabalhar com eventos (click, change)  
+- Trabalhar com eventos  
 - Manipular o DOM  
 - Criar lógica de conversão  
-- Organizar um projeto básico em JavaScript  
+- Estruturar um projeto básico em JavaScript  
 
 ---
 
@@ -47,5 +50,4 @@ Exemplo:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo
-
+git clone https://github.com/Dvd-2405/Conversor-de-moedas
