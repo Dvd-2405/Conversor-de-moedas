@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-image: url('assets.png/aviao.png');
+  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; 
+    padding: 40px 20px; 
+}
+.image{
+    width: 250px;
+    height: auto;
+    margin-bottom: -20px;
+}
+
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    border: 3px solid #000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 900px;
+}
+
+
+.selects-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.select-box {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 25px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.select-box:hover {
+    background-color: #f0f0f0;
+}
+
+.select-box:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+.converter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.placeholder-box {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 25px;
+    background-color: #fff;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.placeholder-box:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.placeholder-box[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.converter-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.converter-button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.converter-button:active {
+    transform: scale(0.98);
+}
+
+
+@media (max-width: 768px) {
+
+    .selects-row,
+    .converter-row {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 25px;
+    }
+} 
+
+
+.header {
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+}
+
+.titulo {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: 0.95;
+    letter-spacing: 1px;
+}
+
+
+.taxas-container {
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 900px;
+}
+
+.taxas-titulo {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.taxas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.taxa-card {
+    background-color: #f8f8f8;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.taxa-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #999;
+}
+
+.taxa-moeda {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.taxa-valores {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.taxa-valores span {
+    font-size: 16px;
+    color: #555;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 28px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    .taxas-container {
+        padding: 30px 20px;
+    }
+
+    .taxas-grid {
+        grid-template-columns: 1fr;
+    }
+}

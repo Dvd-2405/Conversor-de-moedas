@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>Conversor de Moedas</title>
+</head>
+
+<body>
+
+
+    <div class="header">
+        <h1 class="titulo">💱 CONVERSOR DE MOEDAS</h1>
+        <p class="subtitulo">Calculadora de Câmbio</p>
+    </div>
+
+
+    <div class="taxas-container">
+        <h2 class="taxas-titulo">📊 TAXAS DE CÂMBIO</h2>
+        <div class="taxas-grid">
+            <div class="taxa-card">
+                <div class="taxa-moeda">🇺🇸 1 USD</div>
+                <div class="taxa-valores">
+                    <span>🇧🇷 R$ 5,00</span>
+                    <span>🇪🇺 € 0,92</span>
+                    <span>🇬🇧 £ 0,79</span>
+                </div>
+            </div>
+
+            <div class="taxa-card">
+                <div class="taxa-moeda">🇪🇺 1 EUR</div>
+                <div class="taxa-valores">
+                    <span>🇧🇷 R$ 5,50</span>
+                    <span>🇺🇸 $ 1,09</span>
+                    <span>🇬🇧 £ 0,86</span>
+                </div>
+            </div>
+
+            <div class="taxa-card">
+                <div class="taxa-moeda">🇬🇧 1 GBP</div>
+                <div class="taxa-valores">
+                    <span>🇧🇷 R$ 6,30</span>
+                    <span>🇺🇸 $ 1,27</span>
+                    <span>🇪🇺 € 1,17</span>
+                </div>
+            </div>
+
+            <div class="taxa-card">
+                <div class="taxa-moeda">🇧🇷 1 BRL</div>
+                <div class="taxa-valores">
+                    <span>🇺🇸 $ 0,20</span>
+                    <span>🇪🇺 € 0,18</span>
+                    <span>🇬🇧 £ 0,15</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+       <div class="selects-row">
+    <div class="select-wrapper">
+        <span class="bandeira" id="bandeira1">🇧🇷</span>
+        <select class="select-box" id="moeda1">
+            <option value="BRL">Real (BRL)</option>
+            <option value="USD">Dólar (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra (GBP)</option>
+        </select>
+    </div>
+
+    <div class="select-wrapper">
+        <span class="bandeira" id="bandeira2">🇺🇸</span>
+        <select class="select-box" id="moeda2">
+            <option value="USD">Dólar (USD)</option>
+            <option value="BRL">Real (BRL)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra (GBP)</option>
+        </select>
+    </div>
+</div>
+
+        <div class="converter-row">
+            <input type="number" class="placeholder-box" id="valor1" placeholder="Digite o valor">
+
+            <button class="converter-button" id="btnConverter">
+                CONVERTER
+            </button>
+
+            <input type="text" class="placeholder-box" id="valor2" placeholder="Resultado" readonly>
+        </div>
+    </div>
+
+  <script src="aplicacao.js"></script>
+</body>
+
+</html>
