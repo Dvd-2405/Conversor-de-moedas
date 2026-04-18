@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conversor de moedas em tempo real com taxas atualizadas">
     <link rel="stylesheet" href="style.css">
     <title>Conversor de Moedas</title>
 </head>
 
 <body>
 
-    <div class="header">
+    <header class="header">
         <h1 class="titulo">💱 Conversor de Moedas</h1>
         <p class="subtitulo">Calculadora de Câmbio em Tempo Real</p>
-    </div>
+    </header>
 
-    <div class="taxas-container">
+    <section class="taxas-container" aria-label="Taxas de câmbio atuais">
         <h2 class="taxas-titulo">📊 Taxas de Câmbio</h2>
         <p class="taxas-update" id="taxasUpdate">Carregando taxas...</p>
-        <div class="taxas-grid" id="taxasGrid">
+        <div class="taxas-grid" id="taxasGrid"></div>
+    </section>
 
-        </div>
-    </div>
-
-    <div class="container">
+    <main class="container">
         <div class="selects-row">
             <div class="select-wrapper">
+                <label for="moeda1" class="sr-only">Moeda de origem</label>
                 <span class="bandeira" id="bandeira1">🇧🇷</span>
                 <select class="select-box" id="moeda1">
                     <option value="BRL">Real (BRL)</option>
@@ -35,9 +35,10 @@
                 </select>
             </div>
 
-            <button class="btn-moeda" id="btnTrocar" title="Trocar moedas">💰</button>
+            <button class="btn-moeda" id="btnTrocar" aria-label="Trocar moedas" title="Trocar moedas">💰</button>
 
             <div class="select-wrapper">
+                <label for="moeda2" class="sr-only">Moeda de destino</label>
                 <span class="bandeira" id="bandeira2">🇺🇸</span>
                 <select class="select-box" id="moeda2">
                     <option value="USD">Dólar (USD)</option>
@@ -49,13 +50,15 @@
         </div>
 
         <div class="converter-row">
-            <input type="number" class="placeholder-box" id="valor1" placeholder="Digite o valor">
+            <label for="valor1" class="sr-only">Valor a converter</label>
+            <input type="number" class="placeholder-box" id="valor1" placeholder="Digite o valor" min="0">
 
-            <button class="btn-converter-moeda" id="btnConverter" title="Converter">🪙</button>
+            <button class="btn-converter-moeda" id="btnConverter" aria-label="Converter moeda" title="Converter">🪙</button>
 
-            <input type="text" class="placeholder-box" id="valor2" placeholder="Resultado" readonly>
+            <label for="valor2" class="sr-only">Resultado</label>
+            <input type="text" class="placeholder-box" id="valor2" placeholder="Resultado" readonly aria-live="polite">
         </div>
-    </div>
+    </main>
 
     <script src="aplicacao.js"></script>
 </body>
