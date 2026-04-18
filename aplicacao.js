@@ -1,5 +1,3 @@
-
-
 const bandeiras = {
     'BRL': '🇧🇷',
     'USD': '🇺🇸',
@@ -25,12 +23,7 @@ const taxasUpdate = document.getElementById('taxasUpdate');
 async function buscarTaxas() {
     try {
         taxasUpdate.textContent = 'Atualizando taxas...';
-
-        const response = await fetch('https://api.frankfurter.app/latest?from=USD&to=BRL,EUR,GBP');
-        const data = await response.json();
-
         await montarTaxasCompletas();
-
     } catch (error) {
         taxasUpdate.textContent = 'Erro ao carregar taxas. Usando valores locais.';
         usarTaxasFallback();
@@ -105,39 +98,42 @@ function renderizarCards() {
     });
 }
 
-
 function converter() {
     const valor = parseFloat(valor1Input.value);
     const moedaOrigem = moeda1Select.value;
     const moedaDestino = moeda2Select.value;
 
     if (!valor || valor <= 0) {
-        valor2Input.value = 'Digite um valor válido';
+        valor2Input.value = '';
+        valor2Input.placeholder = 'Digite um valor válido';
         return;
     }
 
     if (!taxas[moedaOrigem]) {
-        valor2Input.value = 'Aguarde as taxas...';
+        valor2Input.value = '';
+        valor2Input.placeholder = 'Aguarde as taxas...';
         return;
     }
 
-    const taxa = taxas[moedaOrigem][moedaDestino];
-    const resultado = (valor * taxa).toFixed(2);
-    valor2Input.value = resultado;
+    valor2Input.placeholder = 'Resultado';
 
+    const taxa = taxas[moedaOrigem][moedaDestino];
+    const resultado = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(valor * taxa);
+
+    valor2Input.value = resultado;
     girarBotao(btnConverter);
 }
 
 function girarBotao(botao) {
     botao.classList.remove('girando');
-
     void botao.offsetWidth;
-
     botao.classList.add('girando');
-
     botao.addEventListener('animationend', () => {
         botao.classList.remove('girando');
-    }, { once: true }); 
+    }, { once: true });
 }
 
 function trocarMoedas() {
@@ -150,13 +146,10 @@ function trocarMoedas() {
     atualizarBandeira1();
     atualizarBandeira2();
 
-    // Se já tem valor digitado, reconverte automaticamente
     if (valor1Input.value) converter();
 
-    // Gira o botão de trocar também
     girarBotao(btnTrocar);
 }
-
 
 function atualizarBandeira1() {
     bandeira1El.textContent = bandeiras[moeda1Select.value];
@@ -165,7 +158,6 @@ function atualizarBandeira1() {
 function atualizarBandeira2() {
     bandeira2El.textContent = bandeiras[moeda2Select.value];
 }
-
 
 moeda1Select.addEventListener('change', atualizarBandeira1);
 moeda2Select.addEventListener('change', atualizarBandeira2);
@@ -176,9 +168,8 @@ valor1Input.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') converter();
 });
 
-
 window.addEventListener('load', function () {
     atualizarBandeira1();
     atualizarBandeira2();
-    buscarTaxas(); // busca as taxas da API ao carregar
+    buscarTaxas();
 });
