@@ -1,11 +1,16 @@
-const bandeiras = {
-    'BRL': '🇧🇷',
-    'USD': '🇺🇸',
-    'EUR': '🇪🇺',
-    'GBP': '🇬🇧'
+const moedasExibidas = ['USD', 'EUR', 'GBP', 'BRL'];
+
+const codigosBandeiras = {
+    'BRL': 'br',
+    'USD': 'us',
+    'EUR': 'eu',
+    'GBP': 'gb'
 };
 
-const moedasExibidas = ['USD', 'EUR', 'GBP', 'BRL'];
+function getBandeira(moeda) {
+    const codigo = codigosBandeiras[moeda];
+    return `<img src="https://flagcdn.com/24x18/${codigo}.png" alt="${moeda}" style="vertical-align:middle; margin-right:4px;">`;
+}
 
 let taxas = {};
 
@@ -32,11 +37,12 @@ async function buscarTaxas() {
 
 async function montarTaxasCompletas() {
     try {
-        const moedas = moedasExibidas.join(',');
-
         const promises = moedasExibidas.map(moeda =>
-            fetch(`https://api.frankfurter.app/latest?from=${moeda}&to=${moedas}`)
-                .then(res => res.json())
+            fetch(`https://api.frankfurter.app/latest?from=${moeda}`)
+                .then(res => {
+                    if (!res.ok) throw new Error('Erro na API');
+                    return res.json();
+                })
         );
 
         const resultados = await Promise.all(promises);
@@ -78,7 +84,7 @@ function renderizarCards() {
 
         const titulo = document.createElement('div');
         titulo.classList.add('taxa-moeda');
-        titulo.textContent = `${bandeiras[moedaBase]} 1 ${moedaBase}`;
+        titulo.innerHTML = `${getBandeira(moedaBase)} 1 ${moedaBase}`;
 
         const valores = document.createElement('div');
         valores.classList.add('taxa-valores');
@@ -87,7 +93,7 @@ function renderizarCards() {
             const taxa = taxas[moedaBase]?.[moedaDestino];
             if (taxa) {
                 const span = document.createElement('span');
-                span.textContent = `${bandeiras[moedaDestino]} ${taxa.toFixed(2)} ${moedaDestino}`;
+                span.innerHTML = `${getBandeira(moedaDestino)} ${taxa.toFixed(2)} ${moedaDestino}`;
                 valores.appendChild(span);
             }
         });
@@ -98,8 +104,13 @@ function renderizarCards() {
     });
 }
 
+
+function parsearValor(str) {
+    return parseFloat(str.replace(/\./g, '').replace(',', '.'));
+}
+
 function converter() {
-    const valor = parseFloat(valor1Input.value);
+    const valor = parsearValor(valor1Input.value);
     const moedaOrigem = moeda1Select.value;
     const moedaDestino = moeda2Select.value;
 
@@ -140,8 +151,14 @@ function trocarMoedas() {
     const moeda1Atual = moeda1Select.value;
     const moeda2Atual = moeda2Select.value;
 
+
     moeda1Select.value = moeda2Atual;
     moeda2Select.value = moeda1Atual;
+
+    const valor1Atual = valor1Input.value;
+    const valor2Atual = valor2Input.value;
+    valor1Input.value = valor2Atual;
+    valor2Input.value = valor1Atual;
 
     atualizarBandeira1();
     atualizarBandeira2();
@@ -152,11 +169,11 @@ function trocarMoedas() {
 }
 
 function atualizarBandeira1() {
-    bandeira1El.textContent = bandeiras[moeda1Select.value];
+    bandeira1El.innerHTML = getBandeira(moeda1Select.value);
 }
 
 function atualizarBandeira2() {
-    bandeira2El.textContent = bandeiras[moeda2Select.value];
+    bandeira2El.innerHTML = getBandeira(moeda2Select.value);
 }
 
 moeda1Select.addEventListener('change', atualizarBandeira1);
