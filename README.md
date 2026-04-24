@@ -1,10 +1,11 @@
 # 💱 Conversor de Moedas
 
-> Calculadora de câmbio em tempo real para os amantes das estradas, vias aéreas e marítimas. ✈️
+> Conversor de câmbio em tempo real com taxas atualizadas via API, fallback offline e interface Glassmorphism.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+<img width="1131" height="847" alt="{0515D184-234E-4070-95FD-327E98346596}" src="https://github.com/user-attachments/assets/6f87cf5a-c0eb-433d-b42f-77ae414db739" />
 
 ---
 
@@ -34,6 +35,16 @@ O foco foi ir além do básico — além de fazer funcionar, o projeto foi compl
 - CSS3 (Glassmorphism, animações 3D, Flexbox, Grid)
 - JavaScript Vanilla (Async/Await, Promise.all, Fetch API, DOM Manipulation)
 - [Frankfurter API](https://www.frankfurter.app/) — gratuita, sem necessidade de chave
+
+---
+
+## ▶️ Como Rodar Localmente
+
+```bash
+git clone https://github.com/Dvd-2405/Conversor-de-moedas.git
+```
+
+Abra o arquivo `index.html` no navegador. Sem dependências, sem instalação.
 
 ---
 
